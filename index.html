@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101522">
+<meta name="description" content="A personal daily reset, confidence, faith, football and creativity planner.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Daily Reset — My Routine & Confidence Planner</title>
+<style>
+:root{--bg:#0c111b;--panel:#151d2b;--panel2:#1b2637;--text:#f2f5fb;--muted:#aab6c8;--line:#2b394e;--blue:#83b7ff;--mint:#8fe0c1;--gold:#f1cc83;--pink:#f0a9bd}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#1a2940 0,#0c111b 55%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1000px;margin:auto;padding:28px 17px 60px}
+header{padding:22px 4px 18px}
+.eyebrow{color:var(--mint);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:9px 0 10px;letter-spacing:-.04em}
+.sub{color:var(--muted);max-width:680px;margin:0}
+.topgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px;margin:16px 0}
+.panel,.section{background:linear-gradient(145deg,rgba(27,38,55,.97),rgba(19,28,42,.97));border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:0 12px 30px #0002}
+.panel h2,.section h2{margin:0 0 8px;font-size:1.12rem}
+.dateRow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+input[type=date],input[type=time],input[type=text],textarea{background:#0d1522;color:var(--text);border:1px solid #3a4a62;border-radius:10px;padding:10px;font:inherit;min-width:0}
+input[type=date]{width:100%}
+textarea{width:100%;resize:vertical;min-height:90px}
+.progressTop{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.9rem}
+.track{height:10px;border-radius:20px;background:#0a101a;overflow:hidden;margin:9px 0 5px}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--mint));border-radius:20px;transition:width .2s}
+.small{font-size:.85rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.section{padding:17px}
+.sectionHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
+.sectionHead h2{font-size:1.12rem}
+.emoji{font-size:1.35rem}
+.timebox{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.78rem;white-space:nowrap}
+.timebox input{width:112px;padding:7px;font-size:.86rem}
+ul{list-style:none;padding:0;margin:0}
+li{margin:0;border-top:1px solid rgba(92,111,139,.18)}
+label.task{display:flex;gap:11px;align-items:flex-start;padding:10px 2px;cursor:pointer}
+input[type=checkbox]{appearance:none;flex:0 0 19px;width:19px;height:19px;margin:2px 0 0;border:1.5px solid #71839e;border-radius:6px;background:#101927;cursor:pointer}
+input[type=checkbox]:checked{background:var(--mint);border-color:var(--mint)}
+input[type=checkbox]:checked:after{content:"✓";display:block;color:#10231f;font-weight:900;text-align:center;line-height:17px}
+.task span{transition:color .15s}
+.task input:checked+span{color:#91a0b5;text-decoration:line-through;text-decoration-thickness:1.5px}
+.full{grid-column:1/-1}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pill{padding:7px 10px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:.84rem}
+.quote{font-size:1.02rem;color:#e9eef8;margin:6px 0 0}
+.priority{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+.priority div{background:#101927;border:1px solid var(--line);border-radius:13px;padding:12px}
+.priority b{display:block;margin:5px 0 2px;font-size:.9rem}
+.priority span{font-size:.78rem;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin:17px 0}
+button{border:1px solid #3d526d;background:#20324a;color:var(--text);padding:10px 14px;border-radius:11px;font:600 .9rem system-ui;cursor:pointer}
+button.primary{background:var(--mint);color:#10231f;border-color:var(--mint)}
+button:hover{filter:brightness(1.08)}
+footer{color:var(--muted);font-size:.82rem;text-align:center;margin-top:24px}
+@media(max-width:700px){.topgrid,.grid{grid-template-columns:1fr}.priority{grid-template-columns:repeat(2,1fr)}.full{grid-column:auto}.wrap{padding:20px 13px 45px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">A little progress, every day</div>
+  <h1>My Daily Reset <span aria-hidden="true">✦</span></h1>
+  <p class="sub">A flexible planner for feeling more like yourself, caring for your mental health, enjoying football, creating, and making room for the rest of life. You do not have to complete every box to have a good day.</p>
+</header>
+
+<div class="topgrid">
+  <section class="panel">
+    <h2>Today</h2>
+    <div class="dateRow"><input id="dayDate" type="date" aria-label="Choose date"></div>
+    <p class="small" style="margin-bottom:0">Add your own times to each section. Keep the routine flexible around school, family plans, weather, and rest.</p>
+  </section>
+  <section class="panel">
+    <div class="progressTop"><strong>Today's progress</strong><strong id="progressText">0%</strong></div>
+    <div class="track"><div class="fill" id="progressFill"></div></div>
+    <div class="small" id="countText">0 of 0 tasks checked</div>
+    <p class="small">Every checked box is a little win. Unchecked boxes are not failures.</p>
+  </section>
+</div>
+
+<div class="grid">
+<section class="section">
+ <div class="sectionHead"><div><div class="emoji">🌅</div><h2>Morning routine</h2></div><label class="timebox">Time <input type="time" data-time="morning"></label></div>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Wake up and make my bed.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Drink a glass of water.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Wash my face with cool water or use a cool, damp cloth to wake up.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Brush my teeth and get ready.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Do a little morning scrolling, without letting it take over.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Say my morning prayer.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Read a Bible verse (Philippians 4:13).</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Get some sunlight and fresh air.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Eat a proper breakfast.</span></label></li>
+ </ul>
+</section>
+
+<section class="section">
+ <div class="sectionHead"><div><div class="emoji">⚽</div><h2>Football development</h2></div><label class="timebox">Time <input type="time" data-time="football"></label></div>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Go outside and enjoy some time with the ball.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Warm up comfortably.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Practice juggling and ball control.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Work on dribbling and first touches.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Practice a skill or flick-up I'm learning.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Give my weak foot a little practice.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Finish with relaxed touches, not pressure.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Record progress if I feel like it.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Take a rest day when I need one.</span></label></li>
+ </ul>
+</section>
+
+<section class="section">
+ <div class="sectionHead"><div><div class="emoji">🧠</div><h2>Mental health reset</h2></div><label class="timebox">Time <input type="time" data-time="mental"></label></div>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Check in with myself: how am I actually feeling?</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Write down three things I'm grateful for.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Spend 10 minutes away from my phone.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Get outside, even if it's just for a little while.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Listen to music that makes me feel good.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Talk to someone I trust.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Write down anything that's been bothering me.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Do one thing I genuinely enjoy.</span></label></li>
+ </ul>
+</section>
+
+<section class="section">
+ <div class="sectionHead"><div><div class="emoji">📱</div><h2>Content creation</h2></div><label class="timebox">Time <input type="time" data-time="content"></label></div>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Check my TikTok account.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Plan today's video (only if I want to post).</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Record football content.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Edit my videos.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Make a thumbnail if needed.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Post my content if it's ready.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Reply to comments.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Check analytics without obsessing over views.</span></label></li>
+ </ul>
+</section>
+
+<section class="section">
+ <div class="sectionHead"><div><div class="emoji">🌱</div><h2>Personal development</h2></div><label class="timebox">Time <input type="time" data-time="personal"></label></div>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Keep my room reasonably tidy.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Organize my belongings.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Complete any schoolwork I need to do.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Learn something new or read for a little while.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Spend some time with family or people I care about.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Take breaks and stay hydrated.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Make time for something that isn't football or social media.</span></label></li>
+ </ul>
+</section>
+
+<section class="section">
+ <div class="sectionHead"><div><div class="emoji">🌙</div><h2>Night routine</h2></div><label class="timebox">Time <input type="time" data-time="night"></label></div>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Put away anything I used during the day.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Prepare clothes or anything I need for tomorrow.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Organize tomorrow's schedule.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Reflect on today's progress.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Write down one thing I did well.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Say a prayer before bed.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Put my phone away and get enough sleep.</span></label></li>
+ </ul>
+</section>
+
+<section class="section full">
+ <div class="sectionHead"><div><div class="emoji">💛</div><h2>Rebuilding my confidence</h2></div><span class="pill">My new priority</span></div>
+ <p class="small">Other people's comments do not decide my worth or my potential. I can rebuild confidence at my own pace.</p>
+ <ul>
+  <li><label class="task"><input type="checkbox"><span>Do one thing that makes me happy.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Spend time outside.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Stop comparing my abilities to other players.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Write down one positive thing about myself.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Spend time with people who make me feel appreciated.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Do something without worrying about being judged.</span></label></li>
+  <li><label class="task"><input type="checkbox"><span>Remind myself that I'm more than my football ability.</span></label></li>
+ </ul>
+ <div style="margin-top:14px"><label class="small" for="feeling">How am I feeling today?</label><textarea id="feeling" placeholder="Write honestly. No judgement here..."></textarea></div>
+ <div style="margin-top:12px"><label class="small" for="win">One thing I did well today</label><input id="win" type="text" style="width:100%" placeholder="It can be something small."></div>
+</section>
+
+<section class="section full">
+ <div class="sectionHead"><div><div class="emoji">🧭</div><h2>My daily priorities</h2></div></div>
+ <div class="priority">
+  <div>💛<b>Mental health</b><span>Reconnect with myself and others.</span></div>
+  <div>✝️<b>Faith</b><span>Keep God involved in everyday life.</span></div>
+  <div>⚽<b>Football</b><span>Learn, enjoy it, and grow at my pace.</span></div>
+  <div>🎬<b>Creativity</b><span>Keep creating and enjoying the journey.</span></div>
+ </div>
+</section>
+
+<section class="section full">
+ <div class="sectionHead"><div><div class="emoji">✨</div><h2>Daily reminder</h2></div></div>
+ <p class="quote">I don't need to have a perfect day.<br>I don't need to compare my progress to anyone else's.<br>I am allowed to take breaks.<br>I am allowed to struggle.<br>I am allowed to start again.</p>
+ <p class="quote" style="color:var(--gold);font-weight:700;margin-top:13px">One day at a time. One step at a time.</p>
+ <p class="small" style="margin-bottom:0">Philippians 4:13 — “I can do all things through Christ who strengthens me.”</p>
+</section>
+
+<section class="section full">
+ <h2>📝 Notes for tomorrow</h2>
+ <textarea id="notes" placeholder="Anything I want to remember, plan, or do differently tomorrow..."></textarea>
+</section>
+</div>
+
+<div class="actions">
+ <button class="primary" id="saveBtn">Save today's progress</button>
+ <button id="resetBtn">Reset checkboxes for a new day</button>
+ <button id="printBtn">Print / save as PDF</button>
+</div>
+<p class="small" id="saveStatus" aria-live="polite">Your planner saves on this device in this browser when you make changes.</p>
+<footer>You are a whole person, not a checklist. Rest counts. Small steps count. You count. 💛</footer>
+</div>
+<script>
+const dateInput=document.getElementById('dayDate');
+const today=new Date(); const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+dateInput.value=localDate;
+const checkboxes=[...document.querySelectorAll('input[type="checkbox"]')];
+const keyForDate=()=>`daily-reset-planner-${dateInput.value||localDate}`;
+const fields=[...document.querySelectorAll('[data-time]'),document.getElementById('feeling'),document.getElementById('win'),document.getElementById('notes')];
+function updateProgress(){const done=checkboxes.filter(c=>c.checked).length;const total=checkboxes.length;const pct=total?Math.round(done/total*100):0;document.getElementById('progressText').textContent=pct+'%';document.getElementById('progressFill').style.width=pct+'%';document.getElementById('countText').textContent=`${done} of ${total} tasks checked`;}
+function save(show=true){const data={checks:checkboxes.map(c=>c.checked),fields:fields.map(f=>f.value)};try{localStorage.setItem(keyForDate(),JSON.stringify(data));if(show)document.getElementById('saveStatus').textContent='Saved for '+dateInput.value+' on this device.';}catch(e){document.getElementById('saveStatus').textContent='Browser storage is unavailable. You can still print this planner.';}updateProgress();}
+function load(){let data=null;try{data=JSON.parse(localStorage.getItem(keyForDate())||'null');}catch(e){}checkboxes.forEach((c,i)=>c.checked=!!(data&&data.checks&&data.checks[i]));fields.forEach((f,i)=>f.value=data&&data.fields?data.fields[i]||'':'');document.getElementById('saveStatus').textContent='Showing planner for '+dateInput.value+'.';updateProgress();}
+checkboxes.forEach(c=>c.addEventListener('change',()=>save(false)));
+fields.forEach(f=>f.addEventListener('input',()=>save(false)));
+dateInput.addEventListener('change',load);
+document.getElementById('saveBtn').addEventListener('click',()=>save(true));
+document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('Clear this day’s checkboxes and notes? This will not affect other dates.')){checkboxes.forEach(c=>c.checked=false);fields.forEach(f=>f.value='');save(true);}});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+load();
+</script>
+<style>
+@media print{body{background:#fff;color:#111}.wrap{max-width:none;padding:0}.panel,.section{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb;break-inside:avoid}.sub,.small,.timebox,.pill,footer{color:#444}.task input{print-color-adjust:exact}.actions{display:none}input[type=time],input[type=date],input[type=text],textarea{background:#fff;color:#111;border:1px solid #aaa}.quote{color:#111!important}.priority div{background:#f6f6f6;border-color:#bbb}.track{background:#ddd}}
+</style>
+<script>
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
